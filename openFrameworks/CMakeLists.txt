@@ -2,12 +2,26 @@ cmake_minimum_required(VERSION 2.8.4)
 cmake_policy(SET CMP0042 NEW)
 project(OpenFrameworks)
 
+# ==================== Get oF Version ====================
+file(STRINGS libs/openFrameworks/utils/ofConstants.h OF_VERSION_MAJOR REGEX "^(#define OF_VERSION_MAJOR)")
+file(STRINGS libs/openFrameworks/utils/ofConstants.h OF_VERSION_MINOR REGEX "^(#define OF_VERSION_MINOR)")
+file(STRINGS libs/openFrameworks/utils/ofConstants.h OF_VERSION_PATCH REGEX "^(#define OF_VERSION_PATCH)")
+string(REPLACE "#define OF_VERSION_MAJOR " "" OF_VERSION_MAJOR ${OF_VERSION_MAJOR})
+string(REPLACE "#define OF_VERSION_MINOR " "" OF_VERSION_MINOR ${OF_VERSION_MINOR})
+string(REPLACE "#define OF_VERSION_PATCH " "" OF_VERSION_PATCH ${OF_VERSION_PATCH})
+set(OF_VERSION ${OF_VERSION_MAJOR}.${OF_VERSION_MINOR}.${OF_VERSION_PATCH})
+message(STATUS ${OF_VERSION})
+# ========================================================
+
 # ===================== Compiler Flags =====================
 set(CMAKE_C_COMPILER "/usr/bin/clang")
 set(CMAKE_C_FLAGS "") # -x objective-c
 
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
-set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -D__MACOSX_CORE__") # Removed "-stdlib=libstdc++
+
+if (${OF_VERSION} EQUAL "0.9.0")
+    set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -D__MACOSX_CORE__") # Removed "-stdlib=libstdc++
+endif ()
 
 set(CMAKE_OSX_ARCHITECTURES i386)
 add_compile_options(-Wno-deprecated-declarations)
@@ -25,11 +39,9 @@ set(OF_SOURCE_FILES
         libs/openFrameworks/app/ofAppGlutWindow.cpp
         libs/openFrameworks/app/ofAppNoWindow.cpp
         libs/openFrameworks/app/ofAppRunner.cpp
-        libs/openFrameworks/app/ofMainLoop.cpp
         libs/openFrameworks/communication/ofArduino.cpp
         libs/openFrameworks/communication/ofSerial.cpp
         libs/openFrameworks/events/ofEvents.cpp
-        libs/openFrameworks/gl/ofBufferObject.cpp
         libs/openFrameworks/gl/ofFbo.cpp
         libs/openFrameworks/gl/ofGLProgrammableRenderer.cpp
         libs/openFrameworks/gl/ofGLRenderer.cpp
@@ -57,11 +69,9 @@ set(OF_SOURCE_FILES
         libs/openFrameworks/math/ofQuaternion.cpp
         libs/openFrameworks/math/ofVec2f.cpp
         libs/openFrameworks/math/ofVec4f.cpp
-        libs/openFrameworks/sound/ofBaseSoundStream.cpp
         libs/openFrameworks/sound/ofFmodSoundPlayer.cpp
         libs/openFrameworks/sound/ofOpenALSoundPlayer.cpp
         libs/openFrameworks/sound/ofRtAudioSoundStream.cpp
-        libs/openFrameworks/sound/ofSoundBuffer.cpp
         libs/openFrameworks/sound/ofSoundPlayer.cpp
         libs/openFrameworks/sound/ofSoundStream.cpp
         libs/openFrameworks/types/ofBaseTypes.cpp
@@ -70,19 +80,13 @@ set(OF_SOURCE_FILES
         libs/openFrameworks/types/ofParameterGroup.cpp
         libs/openFrameworks/types/ofRectangle.cpp
         libs/openFrameworks/utils/ofFileUtils.cpp
-        libs/openFrameworks/utils/ofFpsCounter.cpp
         libs/openFrameworks/utils/ofLog.cpp
         libs/openFrameworks/utils/ofMatrixStack.cpp
         libs/openFrameworks/utils/ofSystemUtils.cpp
         libs/openFrameworks/utils/ofThread.cpp
-        libs/openFrameworks/utils/ofTimer.cpp
         libs/openFrameworks/utils/ofURLFileLoader.cpp
         libs/openFrameworks/utils/ofUtils.cpp
         libs/openFrameworks/utils/ofXml.cpp
-        libs/openFrameworks/video/ofVideoGrabber.cpp
-        libs/openFrameworks/video/ofVideoPlayer.cpp
-        libs/openFrameworks/video/ofAVFoundationVideoPlayer.m
-        libs/openFrameworks/video/ofAVFoundationPlayer.mm
         libs/openFrameworks/video/ofQTKitGrabber.mm
         libs/openFrameworks/video/ofQTKitMovieRenderer.m
         libs/openFrameworks/video/ofQTKitPlayer.mm
@@ -99,6 +103,20 @@ set(OF_SOURCE_FILES
         # libs/openFrameworks/video/ofGstVideoGrabber.cpp
         # libs/openFrameworks/video/ofGstVideoPlayer.cpp
         )
+if (${OF_VERSION} EQUAL "0.9.0")
+    list(APPEND OF_SOURCE_FILES
+            libs/openFrameworks/app/ofMainLoop.cpp
+            libs/openFrameworks/gl/ofBufferObject.cpp
+            libs/openFrameworks/sound/ofBaseSoundStream.cpp
+            libs/openFrameworks/sound/ofSoundBuffer.cpp
+            libs/openFrameworks/utils/ofFpsCounter.cpp
+            libs/openFrameworks/utils/ofTimer.cpp
+            libs/openFrameworks/video/ofVideoGrabber.cpp
+            libs/openFrameworks/video/ofVideoPlayer.cpp
+            libs/openFrameworks/video/ofAVFoundationVideoPlayer.m
+            libs/openFrameworks/video/ofAVFoundationPlayer.mm
+            )
+endif ()
 # ========================================================
 
 # ===================== Include Dirs =====================
@@ -135,13 +153,11 @@ set(OF_CORE_HEADERS
 set(OF_CORE_LIBS
         ${PROJECT_SOURCE_DIR}/libs/glut/lib/osx/GLUT.framework       # Use oF's GLUT
         ${PROJECT_SOURCE_DIR}/libs/fmodex/lib/osx/libfmodex.dylib
-        ${PROJECT_SOURCE_DIR}/libs/glfw/lib/osx/glfw3.a                # Renamed in oF 0.9
         ${PROJECT_SOURCE_DIR}/libs/FreeImage/lib/osx/freeimage.a
         ${PROJECT_SOURCE_DIR}/libs/freetype/lib/osx/freetype.a
         ${PROJECT_SOURCE_DIR}/libs/glew/lib/osx/glew.a
         ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoCrypto.a
         ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoData.a
-        ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoJSON.a           # new in oF 0.9
         ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoDataSQLite.a
         ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoFoundation.a
         ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoNet.a
@@ -149,7 +165,6 @@ set(OF_CORE_LIBS
         ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoUtil.a
         ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoXML.a
         ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoZip.a
-        ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoMongoDB.a       # new in oF 0.9
         ${PROJECT_SOURCE_DIR}/libs/rtAudio/lib/osx/rtAudio.a
         ${PROJECT_SOURCE_DIR}/libs/tess2/lib/osx/tess2.a
         ${PROJECT_SOURCE_DIR}/libs/cairo/lib/osx/cairo-script-interpreter.a
@@ -157,10 +172,22 @@ set(OF_CORE_LIBS
         ${PROJECT_SOURCE_DIR}/libs/cairo/lib/osx/pixman-1.a
         ${PROJECT_SOURCE_DIR}/libs/openssl/lib/osx/crypto.a
         ${PROJECT_SOURCE_DIR}/libs/openssl/lib/osx/ssl.a
-        ${PROJECT_SOURCE_DIR}/libs/boost/lib/osx/boost.a            # new in oF 0.9
-        ${PROJECT_SOURCE_DIR}/libs/boost/lib/osx/boost_filesystem.a # new in oF 0.9
-        ${PROJECT_SOURCE_DIR}/libs/boost/lib/osx/boost_system.a     # new in oF 0.9
         )
+if (${OF_VERSION} EQUAL "0.9.0")
+    list(APPEND OF_CORE_LIBS
+            ${PROJECT_SOURCE_DIR}/libs/glfw/lib/osx/glfw3.a             # Renamed in oF 0.9
+            ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoJSON.a          # new in oF 0.9
+            ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoMongoDB.a       # new in oF 0.9
+            ${PROJECT_SOURCE_DIR}/libs/boost/lib/osx/boost.a            # new in oF 0.9
+            ${PROJECT_SOURCE_DIR}/libs/boost/lib/osx/boost_filesystem.a # new in oF 0.9
+            ${PROJECT_SOURCE_DIR}/libs/boost/lib/osx/boost_system.a     # new in oF 0.9
+            )
+elseif (${OF_VERSION} EQUAL "0.8.4")
+    list(APPEND OF_CORE_LIBS
+            ${PROJECT_SOURCE_DIR}/libs/glfw/lib/osx/libglfw3.a             # Renamed in oF 0.9
+            ${PROJECT_SOURCE_DIR}/libs/poco/lib/osx/PocoDataODBC.a
+            )
+endif ()
 # ================================================
 
 # ===================== System Frameworks =====================
@@ -179,10 +206,6 @@ find_library(quicktime_lib QuickTime)
 find_library(corevideo_lib CoreVideo)
 find_library(qtkit_lib QTKit)
 find_library(cocoa_lib Cocoa)
-find_library(coremedia_lib CoreMedia)       # new in oF 0.9
-find_library(avfoundation_lib AVFoundation) # new in oF 0.9
-find_library(quartzcore_lib QuartzCore)     # new in oF 0.9
-find_library(appkit_lib AppKit)             # new in oF 0.9
 
 set(OF_CORE_FRAMEWORKS
         ${accelerate_lib}
@@ -197,11 +220,20 @@ set(OF_CORE_FRAMEWORKS
         ${quicktime_lib}
         ${corevideo_lib}
         ${qtkit_lib}
-        ${cocoa_lib}
-        ${coremedia_lib}     # new in oF 0.9
-        ${avfoundation_lib}  # new in oF 0.9
-        ${quartzcore_lib}    # new in oF 0.9
-        ${appkit_lib})       # new in oF 0.9
+        ${cocoa_lib})
+
+if (${OF_VERSION} EQUAL "0.9.0")
+    find_library(coremedia_lib CoreMedia)       # new in oF 0.9
+    find_library(avfoundation_lib AVFoundation) # new in oF 0.9
+    find_library(quartzcore_lib QuartzCore)     # new in oF 0.9
+    find_library(appkit_lib AppKit)             # new in oF 0.9
+
+    list(APPEND OF_CORE_FRAMEWORKS
+            ${coremedia_lib}     # new in oF 0.9
+            ${avfoundation_lib}  # new in oF 0.9
+            ${quartzcore_lib}    # new in oF 0.9
+            ${appkit_lib})       # new in oF 0.9
+endif ()
 # =============================================================
 
 # ==================== Addon Parameters =======================
@@ -218,12 +250,19 @@ endif ()
 set(OF_SOURCE_FILES ${OF_SOURCE_FILES} ${ADDON_SOURCE_FILES})
 include_directories(${OF_CORE_HEADERS} ${OF_ADDON_HEADERS})
 
-set_source_files_properties(${OF_SOURCE_FILES} PROPERTIES COMPILE_FLAGS "-x objective-c++") # Removed "-stdlib=libstdc++, added -x objective-c++
+if (${OF_VERSION} EQUAL "0.9.0")
+    set_source_files_properties(${OF_SOURCE_FILES} PROPERTIES COMPILE_FLAGS "-x objective-c++") # Removed "-stdlib=libstdc++, added -x objective-c++
+elseif (${OF_VERSION} EQUAL "0.8.4")
+    set_source_files_properties(${OF_SOURCE_FILES} PROPERTIES COMPILE_FLAGS "-stdlib=libstdc++ -x objective-c++") # Removed "-stdlib=libstdc++, added -x objective-c++
+endif ()
 
 add_library(core OBJECT ${OF_SOURCE_FILES})
 add_library(of_shared SHARED $<TARGET_OBJECTS:core>)
 
-set_target_properties(of_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY bin)
+if (${OF_VERSION} EQUAL "0.8.4")
+    set_target_properties(of_shared PROPERTIES LINK_FLAGS "-stdlib=libstdc++ -arch i386 -F'${PROJECT_SOURCE_DIR}/libs/glut/lib/osx/' -F${FRAMEWORKS_DIR}")
+endif ()
+set_target_properties(of_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set_target_properties(of_shared PROPERTIES OUTPUT_NAME openFrameworks)
 
 target_link_libraries(of_shared ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${OF_CORE_LIBS} ${OF_ADDON_LIBS})

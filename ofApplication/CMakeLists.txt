@@ -5,7 +5,7 @@ set(APP_NAME ofApplication)
 set(BUNDLE_NAME "ofApplication")
 
 # ===================== oF Directory =====================
-set(OF_DIRECTORY "/Users/kureta/Documents/Cpp/of_v0.9.0" CACHE PATH "OpenFrameworks path")
+set(OF_DIRECTORY "/Users/kureta/Documents/Cpp/openFrameworks-old" CACHE PATH "OpenFrameworks path")
 # ========================================================
 
 # ==================== Get oF Version ====================
@@ -24,7 +24,11 @@ set(CMAKE_C_COMPILER "/usr/bin/clang")
 set(CMAKE_C_FLAGS "") # -x objective-c
 
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
-set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -D__MACOSX_CORE__") # Removed "-stdlib=libstdc++
+if (${OF_VERSION} EQUAL "0.9.0")
+    set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -D__MACOSX_CORE__") # Removed "-stdlib=libstdc++
+elseif (${OF_VERSION} EQUAL "0.8.4")
+    set(CMAKE_CXX_FLAGS "-stdlib=libstdc++ -D__MACOSX_CORE__")
+endif ()
 
 set(CMAKE_OSX_ARCHITECTURES i386)
 add_compile_options(-Wno-deprecated-declarations)

@@ -223,7 +223,7 @@ add_library(of_shared SHARED $<TARGET_OBJECTS:core>)
 set_target_properties(of_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set_target_properties(of_shared PROPERTIES OUTPUT_NAME openFrameworks)
 
-target_link_libraries(of_shared ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${OF_CORE_LIBS})
+target_link_libraries(of_shared ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${OF_CORE_LIBS} ${OF_ADDON_LIBS})
 
 install(FILES $<TARGET_FILE:of_shared> DESTINATION oF/lib)
 install(FILES libs/fmodex/lib/osx/libfmodex.dylib DESTINATION oF/lib)

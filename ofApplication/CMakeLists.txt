@@ -8,6 +8,17 @@ set(BUNDLE_NAME "ofApplication")
 set(OF_DIRECTORY "/Users/kureta/Documents/Cpp/of_v0.9.0" CACHE PATH "OpenFrameworks path")
 # ========================================================
 
+# ==================== Get oF Version ====================
+file(STRINGS ${OF_DIRECTORY}/libs/openFrameworks/utils/ofConstants.h OF_VERSION_MAJOR REGEX "^(#define OF_VERSION_MAJOR)")
+file(STRINGS ${OF_DIRECTORY}/libs/openFrameworks/utils/ofConstants.h OF_VERSION_MINOR REGEX "^(#define OF_VERSION_MINOR)")
+file(STRINGS ${OF_DIRECTORY}/libs/openFrameworks/utils/ofConstants.h OF_VERSION_PATCH REGEX "^(#define OF_VERSION_PATCH)")
+string(REPLACE "#define OF_VERSION_MAJOR " "" OF_VERSION_MAJOR ${OF_VERSION_MAJOR})
+string(REPLACE "#define OF_VERSION_MINOR " "" OF_VERSION_MINOR ${OF_VERSION_MINOR})
+string(REPLACE "#define OF_VERSION_PATCH " "" OF_VERSION_PATCH ${OF_VERSION_PATCH})
+set(OF_VERSION ${OF_VERSION_MAJOR}.${OF_VERSION_MINOR}.${OF_VERSION_PATCH})
+message(STATUS ${OF_VERSION})
+# ========================================================
+
 # ===================== Compiler Flags =====================
 set(CMAKE_C_COMPILER "/usr/bin/clang")
 set(CMAKE_C_FLAGS "") # -x objective-c

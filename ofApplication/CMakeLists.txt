@@ -33,7 +33,7 @@ ExternalProject_Add(
         SOURCE_DIR ${OF_DIRECTORY}
         INSTALL_DIR ${of_install_dir}
         CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
-        # CMAKE_CACHE_ARGS -DINCLUDE_ADDONS:STRING=${PROJECT_SOURCE_DIR}/addons.cmake
+        CMAKE_CACHE_ARGS -DINCLUDE_ADDONS:STRING=${PROJECT_SOURCE_DIR}/addons.cmake
 )
 # ================================================
 
@@ -42,7 +42,7 @@ find_library(opengl_lib OpenGL)
 # =============================================================
 
 # ==================== Addons ====================
-# include(addons.cmake)
+include(addons.cmake)
 # ================================================
 
 # ===================== Include Dirs =====================

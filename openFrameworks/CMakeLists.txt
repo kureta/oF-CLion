@@ -205,7 +205,7 @@ set(OF_CORE_FRAMEWORKS
 # =============================================================
 
 # ==================== Addon Parameters =======================
-set(INCLUDE_ADDONS "" CACHE STRING "just wow!")
+set(INCLUDE_ADDONS "" CACHE STRING "Path to addons.cmake")
 set(OF_DIRECTORY ${PROJECT_SOURCE_DIR})
 if (EXISTS ${INCLUDE_ADDONS})
     include(${INCLUDE_ADDONS})

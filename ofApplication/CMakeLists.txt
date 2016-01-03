@@ -43,6 +43,9 @@ find_library(opengl_lib OpenGL)
 
 # ==================== Addons ====================
 include(addons.cmake)
+foreach (addon_config ${OFX_ADDONS})
+    include(${OF_DIRECTORY}/addons/${addon_config}/addon_config.cmake)
+endforeach ()
 # ================================================
 
 # ===================== Include Dirs =====================

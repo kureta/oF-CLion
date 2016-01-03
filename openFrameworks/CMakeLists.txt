@@ -209,6 +209,9 @@ set(INCLUDE_ADDONS "" CACHE PATH "Path to addons.cmake")
 set(OF_DIRECTORY ${PROJECT_SOURCE_DIR})
 if (EXISTS ${INCLUDE_ADDONS})
     include(${INCLUDE_ADDONS})
+    foreach (addon_config ${OFX_ADDONS})
+        include(${OF_DIRECTORY}/addons/${addon_config}/addon_config.cmake)
+    endforeach ()
 endif ()
 # =============================================================
 

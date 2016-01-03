@@ -1,4 +1,4 @@
-set(Kinect_SOURCES
+list(APPEND ADDON_SOURCE_FILES
 		${OF_DIRECTORY}/addons/ofxKinect/src/ofxKinect.cpp
 		${OF_DIRECTORY}/addons/ofxKinect/src/extra/ofxKinectExtras.cpp
 
@@ -13,7 +13,7 @@ set(Kinect_SOURCES
 		${OF_DIRECTORY}/addons/ofxKinect/libs/libfreenect/src/usb_libusb10.c
         )
 
-set(Kinect_HEADERS
+list(APPEND OF_ADDON_HEADERS
 		${OF_DIRECTORY}/addons/ofxKinect/src
 		${OF_DIRECTORY}/addons/ofxKinect/src/extra
 		${OF_DIRECTORY}/addons/ofxKinect/libs/libfreenect/src
@@ -21,10 +21,6 @@ set(Kinect_HEADERS
 		${OF_DIRECTORY}/addons/ofxKinect/libs/libusb-1.0/include/libusb-1.0
         )
 
-set(Kinect_LIBRARIES
+list(APPEND OF_ADDON_LIBS
 		${OF_DIRECTORY}/addons/ofxKinect/libs/libusb-1.0/lib/osx/usb-1.0.a
 )
-
-list(APPEND ADDON_SOURCE_FILES ${Kinect_SOURCES})
-list(APPEND OF_ADDON_HEADERS ${Kinect_HEADERS})
-list(APPEND OF_ADDON_LIBS ${Kinect_LIBRARIES})

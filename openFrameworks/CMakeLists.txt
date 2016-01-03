@@ -15,119 +15,119 @@ add_compile_options(-Wno-deprecated-declarations)
 
 # ===================== Source Files =====================
 set(OF_SOURCE_FILES
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/3d/of3dPrimitives.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/3d/of3dUtils.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/3d/ofCamera.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/3d/ofEasyCam.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/3d/ofMesh.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/3d/ofNode.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/app/ofAppGLFWWindow.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/app/ofAppGlutWindow.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/app/ofAppNoWindow.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/app/ofAppRunner.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/app/ofMainLoop.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/communication/ofArduino.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/communication/ofSerial.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/events/ofEvents.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofBufferObject.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofFbo.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofGLProgrammableRenderer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofGLRenderer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofGLUtils.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofLight.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofMaterial.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofShader.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofTexture.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofVbo.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl/ofVboMesh.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/of3dGraphics.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofBitmapFont.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofCairoRenderer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofGraphics.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofImage.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofPath.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofPixels.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofPolyline.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofRendererCollection.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofTessellator.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics/ofTrueTypeFont.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/math/ofMath.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/math/ofMatrix3x3.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/math/ofMatrix4x4.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/math/ofQuaternion.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/math/ofVec2f.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/math/ofVec4f.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/sound/ofBaseSoundStream.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/sound/ofFmodSoundPlayer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/sound/ofOpenALSoundPlayer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/sound/ofRtAudioSoundStream.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/sound/ofSoundBuffer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/sound/ofSoundPlayer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/sound/ofSoundStream.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/types/ofBaseTypes.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/types/ofColor.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/types/ofParameter.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/types/ofParameterGroup.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/types/ofRectangle.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofFileUtils.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofFpsCounter.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofLog.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofMatrixStack.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofSystemUtils.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofThread.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofTimer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofURLFileLoader.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofUtils.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils/ofXml.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofVideoGrabber.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofVideoPlayer.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofAVFoundationVideoPlayer.m
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofAVFoundationPlayer.mm
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofQTKitGrabber.mm
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofQTKitMovieRenderer.m
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofQTKitPlayer.mm
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofQtUtils.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofQuickTimeGrabber.cpp
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofQuickTimePlayer.cpp
+        libs/openFrameworks/3d/of3dPrimitives.cpp
+        libs/openFrameworks/3d/of3dUtils.cpp
+        libs/openFrameworks/3d/ofCamera.cpp
+        libs/openFrameworks/3d/ofEasyCam.cpp
+        libs/openFrameworks/3d/ofMesh.cpp
+        libs/openFrameworks/3d/ofNode.cpp
+        libs/openFrameworks/app/ofAppGLFWWindow.cpp
+        libs/openFrameworks/app/ofAppGlutWindow.cpp
+        libs/openFrameworks/app/ofAppNoWindow.cpp
+        libs/openFrameworks/app/ofAppRunner.cpp
+        libs/openFrameworks/app/ofMainLoop.cpp
+        libs/openFrameworks/communication/ofArduino.cpp
+        libs/openFrameworks/communication/ofSerial.cpp
+        libs/openFrameworks/events/ofEvents.cpp
+        libs/openFrameworks/gl/ofBufferObject.cpp
+        libs/openFrameworks/gl/ofFbo.cpp
+        libs/openFrameworks/gl/ofGLProgrammableRenderer.cpp
+        libs/openFrameworks/gl/ofGLRenderer.cpp
+        libs/openFrameworks/gl/ofGLUtils.cpp
+        libs/openFrameworks/gl/ofLight.cpp
+        libs/openFrameworks/gl/ofMaterial.cpp
+        libs/openFrameworks/gl/ofShader.cpp
+        libs/openFrameworks/gl/ofTexture.cpp
+        libs/openFrameworks/gl/ofVbo.cpp
+        libs/openFrameworks/gl/ofVboMesh.cpp
+        libs/openFrameworks/graphics/of3dGraphics.cpp
+        libs/openFrameworks/graphics/ofBitmapFont.cpp
+        libs/openFrameworks/graphics/ofCairoRenderer.cpp
+        libs/openFrameworks/graphics/ofGraphics.cpp
+        libs/openFrameworks/graphics/ofImage.cpp
+        libs/openFrameworks/graphics/ofPath.cpp
+        libs/openFrameworks/graphics/ofPixels.cpp
+        libs/openFrameworks/graphics/ofPolyline.cpp
+        libs/openFrameworks/graphics/ofRendererCollection.cpp
+        libs/openFrameworks/graphics/ofTessellator.cpp
+        libs/openFrameworks/graphics/ofTrueTypeFont.cpp
+        libs/openFrameworks/math/ofMath.cpp
+        libs/openFrameworks/math/ofMatrix3x3.cpp
+        libs/openFrameworks/math/ofMatrix4x4.cpp
+        libs/openFrameworks/math/ofQuaternion.cpp
+        libs/openFrameworks/math/ofVec2f.cpp
+        libs/openFrameworks/math/ofVec4f.cpp
+        libs/openFrameworks/sound/ofBaseSoundStream.cpp
+        libs/openFrameworks/sound/ofFmodSoundPlayer.cpp
+        libs/openFrameworks/sound/ofOpenALSoundPlayer.cpp
+        libs/openFrameworks/sound/ofRtAudioSoundStream.cpp
+        libs/openFrameworks/sound/ofSoundBuffer.cpp
+        libs/openFrameworks/sound/ofSoundPlayer.cpp
+        libs/openFrameworks/sound/ofSoundStream.cpp
+        libs/openFrameworks/types/ofBaseTypes.cpp
+        libs/openFrameworks/types/ofColor.cpp
+        libs/openFrameworks/types/ofParameter.cpp
+        libs/openFrameworks/types/ofParameterGroup.cpp
+        libs/openFrameworks/types/ofRectangle.cpp
+        libs/openFrameworks/utils/ofFileUtils.cpp
+        libs/openFrameworks/utils/ofFpsCounter.cpp
+        libs/openFrameworks/utils/ofLog.cpp
+        libs/openFrameworks/utils/ofMatrixStack.cpp
+        libs/openFrameworks/utils/ofSystemUtils.cpp
+        libs/openFrameworks/utils/ofThread.cpp
+        libs/openFrameworks/utils/ofTimer.cpp
+        libs/openFrameworks/utils/ofURLFileLoader.cpp
+        libs/openFrameworks/utils/ofUtils.cpp
+        libs/openFrameworks/utils/ofXml.cpp
+        libs/openFrameworks/video/ofVideoGrabber.cpp
+        libs/openFrameworks/video/ofVideoPlayer.cpp
+        libs/openFrameworks/video/ofAVFoundationVideoPlayer.m
+        libs/openFrameworks/video/ofAVFoundationPlayer.mm
+        libs/openFrameworks/video/ofQTKitGrabber.mm
+        libs/openFrameworks/video/ofQTKitMovieRenderer.m
+        libs/openFrameworks/video/ofQTKitPlayer.mm
+        libs/openFrameworks/video/ofQtUtils.cpp
+        libs/openFrameworks/video/ofQuickTimeGrabber.cpp
+        libs/openFrameworks/video/ofQuickTimePlayer.cpp
 
         # TODO: Not working right now
         # ======== For Windows ========
-        # ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofDirectShowGrabber.cpp
-        # ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofDirectShowPlayer.cpp
+        # libs/openFrameworks/video/ofDirectShowGrabber.cpp
+        # libs/openFrameworks/video/ofDirectShowPlayer.cpp
         # ======== For Linux ========
-        # ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofGstUtils.cpp
-        # ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofGstVideoGrabber.cpp
-        # ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video/ofGstVideoPlayer.cpp
+        # libs/openFrameworks/video/ofGstUtils.cpp
+        # libs/openFrameworks/video/ofGstVideoGrabber.cpp
+        # libs/openFrameworks/video/ofGstVideoPlayer.cpp
         )
 # ========================================================
 
 # ===================== Include Dirs =====================
 set(OF_CORE_HEADERS
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/3d
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/app
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/communication
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/events
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/gl
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/graphics
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/math
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/sound
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/types
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/utils
-        ${PROJECT_SOURCE_DIR}/libs/openFrameworks/video
-        ${PROJECT_SOURCE_DIR}/libs/freetype/include
-        ${PROJECT_SOURCE_DIR}/libs/freetype/include/freetype2
-        ${PROJECT_SOURCE_DIR}/libs/poco/include
-        ${PROJECT_SOURCE_DIR}/libs/fmodex/include
-        ${PROJECT_SOURCE_DIR}/libs/glew/include
-        ${PROJECT_SOURCE_DIR}/libs/FreeImage/include
-        ${PROJECT_SOURCE_DIR}/libs/tess2/include
-        ${PROJECT_SOURCE_DIR}/libs/cairo/include/cairo
-        ${PROJECT_SOURCE_DIR}/libs/rtAudio/include
-        ${PROJECT_SOURCE_DIR}/libs/glfw/include
-        ${PROJECT_SOURCE_DIR}/libs/openssl/include
-        ${PROJECT_SOURCE_DIR}/libs/utf8cpp/include
-        ${PROJECT_SOURCE_DIR}/libs/boost/include
+        libs/openFrameworks
+        libs/openFrameworks/3d
+        libs/openFrameworks/app
+        libs/openFrameworks/communication
+        libs/openFrameworks/events
+        libs/openFrameworks/gl
+        libs/openFrameworks/graphics
+        libs/openFrameworks/math
+        libs/openFrameworks/sound
+        libs/openFrameworks/types
+        libs/openFrameworks/utils
+        libs/openFrameworks/video
+        libs/freetype/include
+        libs/freetype/include/freetype2
+        libs/poco/include
+        libs/fmodex/include
+        libs/glew/include
+        libs/FreeImage/include
+        libs/tess2/include
+        libs/cairo/include/cairo
+        libs/rtAudio/include
+        libs/glfw/include
+        libs/openssl/include
+        libs/utf8cpp/include
+        libs/boost/include
         )
 # ========================================================
 
@@ -210,7 +210,7 @@ set(OF_DIRECTORY ${PROJECT_SOURCE_DIR})
 if (EXISTS ${INCLUDE_ADDONS})
     include(${INCLUDE_ADDONS})
     foreach (addon_config ${OFX_ADDONS})
-        include(${OF_DIRECTORY}/addons/${addon_config}/addon_config.cmake)
+        include(addons/${addon_config}/addon_config.cmake)
     endforeach ()
 endif ()
 # =============================================================
@@ -223,7 +223,7 @@ set_source_files_properties(${OF_SOURCE_FILES} PROPERTIES COMPILE_FLAGS "-x obje
 add_library(core OBJECT ${OF_SOURCE_FILES})
 add_library(of_shared SHARED $<TARGET_OBJECTS:core>)
 
-set_target_properties(of_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set_target_properties(of_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY bin)
 set_target_properties(of_shared PROPERTIES OUTPUT_NAME openFrameworks)
 
 target_link_libraries(of_shared ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${OF_CORE_LIBS} ${OF_ADDON_LIBS})

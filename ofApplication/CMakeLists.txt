@@ -5,7 +5,7 @@ set(APP_NAME ofApplication)
 set(BUNDLE_NAME "ofApplication")
 
 # ===================== oF Directory =====================
-set(OF_DIRECTORY "/Users/kureta/Documents/Cpp/openFrameworks-old" CACHE PATH "OpenFrameworks path")
+set(OF_DIRECTORY "PATH TO YOUR OPENFRAMEWORKS FOLDER" CACHE PATH "OpenFrameworks path")
 # ========================================================
 
 # ==================== Get oF Version ====================

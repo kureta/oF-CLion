@@ -5,6 +5,6 @@ list(APPEND ADDON_SOURCE_FILES
         )
 
 list(APPEND OF_ADDON_HEADERS
-        ${OF_DIRECTORY}/addons/ofx3DModelLoader/src/
-        ${OF_DIRECTORY}/addons/ofx3DModelLoader/3DS
+        ${OF_DIRECTORY}/addons/ofx3DModelLoader/src
+        ${OF_DIRECTORY}/addons/ofx3DModelLoader/src/3DS
         )

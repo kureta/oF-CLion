@@ -228,22 +228,6 @@ target_link_libraries(of_shared ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${O
 install(FILES $<TARGET_FILE:of_shared> DESTINATION oF/lib)
 install(FILES libs/fmodex/lib/osx/libfmodex.dylib DESTINATION oF/lib)
 
-#### Install Headers
-#foreach (element ${OF_CORE_HEADERS} ${OF_ADDON_HEADERS})
-#    file(GLOB DEPLOY_FILES_AND_DIRS "${element}/[^.]*")
-#    foreach (ITEM ${DEPLOY_FILES_AND_DIRS})
-#        IF (IS_DIRECTORY "${ITEM}")
-#            LIST(APPEND DIRS_TO_DEPLOY "${ITEM}")
-#        ELSE ()
-#            LIST(APPEND FILES_TO_DEPLOY "${ITEM}")
-#        ENDIF ()
-#    endforeach ()
-#endforeach ()
-#
-#install(FILES ${FILES_TO_DEPLOY} DESTINATION oF/include/)
-#install(DIRECTORY ${DIRS_TO_DEPLOY} DESTINATION oF/include/)
-#### End Install Headers
-
 ADD_CUSTOM_COMMAND(TARGET of_shared
         POST_BUILD
         COMMAND ${CMAKE_INSTALL_NAME_TOOL}

@@ -260,7 +260,7 @@ add_library(core OBJECT ${OF_SOURCE_FILES})
 add_library(of_shared SHARED $<TARGET_OBJECTS:core>)
 
 if (${OF_VERSION} EQUAL "0.8.4")
-    set_target_properties(of_shared PROPERTIES LINK_FLAGS "-stdlib=libstdc++ -arch i386 -F'${PROJECT_SOURCE_DIR}/libs/glut/lib/osx/' -F${FRAMEWORKS_DIR}")
+    set_target_properties(of_shared PROPERTIES LINK_FLAGS "-stdlib=libstdc++")
 endif ()
 set_target_properties(of_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set_target_properties(of_shared PROPERTIES OUTPUT_NAME openFrameworks)

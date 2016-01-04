@@ -269,6 +269,7 @@ target_link_libraries(of_shared ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${O
 
 install(FILES $<TARGET_FILE:of_shared> DESTINATION oF/lib)
 install(FILES libs/fmodex/lib/osx/libfmodex.dylib DESTINATION oF/lib)
+install(DIRECTORY libs/glut/lib/osx/GLUT.framework DESTINATION .)
 
 ADD_CUSTOM_COMMAND(TARGET of_shared
         POST_BUILD

@@ -16,7 +16,7 @@ string(REPLACE "#define OF_VERSION_MAJOR " "" OF_VERSION_MAJOR ${OF_VERSION_MAJO
 string(REPLACE "#define OF_VERSION_MINOR " "" OF_VERSION_MINOR ${OF_VERSION_MINOR})
 string(REPLACE "#define OF_VERSION_PATCH " "" OF_VERSION_PATCH ${OF_VERSION_PATCH})
 set(OF_VERSION ${OF_VERSION_MAJOR}.${OF_VERSION_MINOR}.${OF_VERSION_PATCH})
-message(STATUS ${OF_VERSION})
+message(STATUS "Detected openFrameworks version: ${OF_VERSION}")
 # ========================================================
 
 # ===================== Compiler Flags =====================

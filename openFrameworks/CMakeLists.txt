@@ -92,6 +92,8 @@ set(OF_SOURCE_FILES
         libs/openFrameworks/video/ofQtUtils.cpp
         libs/openFrameworks/video/ofQuickTimeGrabber.cpp
         libs/openFrameworks/video/ofQuickTimePlayer.cpp
+        libs/openFrameworks/video/ofVideoGrabber.cpp
+        libs/openFrameworks/video/ofVideoPlayer.cpp
 
         # TODO: Not working right now
         # ======== For Windows ========
@@ -110,8 +112,6 @@ if (${OF_VERSION} EQUAL "0.9.0")
             libs/openFrameworks/sound/ofSoundBuffer.cpp
             libs/openFrameworks/utils/ofFpsCounter.cpp
             libs/openFrameworks/utils/ofTimer.cpp
-            libs/openFrameworks/video/ofVideoGrabber.cpp
-            libs/openFrameworks/video/ofVideoPlayer.cpp
             libs/openFrameworks/video/ofAVFoundationVideoPlayer.m
             libs/openFrameworks/video/ofAVFoundationPlayer.mm
             )
